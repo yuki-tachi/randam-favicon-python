@@ -4,10 +4,9 @@ from draw_svg import Drawable, Rect, Circle, Triangle, get_draw_svg, create_svg
 import generate_pattern
 import os
 
-shape_list = ['Rect', 'Circle', 'Triangle']
 left_layout = [
     [sg.Text('Division:'), sg.Input(5, key='-DIV-', change_submits=True)],
-    [sg.Text('Shape:'), sg.Combo(shape_list, default_value='Rect', key='-SHAPE-', readonly=True, change_submits=True)],
+    [sg.Text('Shape:'), sg.Combo(['Rect', 'Circle', 'Triangle'], default_value='Rect', key='-SHAPE-', readonly=True, change_submits=True)],
     [sg.Text('Fill:'), sg.Input("#B30F3A", key='-FILL-', change_submits=True)],
     [sg.Text('Pattern:'), sg.Ok("Change Pattern",key='-PATTERN-')],
 ]
@@ -17,7 +16,7 @@ right_layout = [
     ], justification='center')]
 ]
 
-leftFrame = sg.Frame('select date', left_layout, size=(200, 250), vertical_alignment="top")
+leftFrame = sg.Frame('setting', left_layout, size=(200, 250), vertical_alignment="top")
 rightFrame = sg.Frame('result', right_layout, size=(200,200), vertical_alignment="center")
 
 layout = [
